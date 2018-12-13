@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>投稿を作る</h1>
+  <hr>
+  <%= form_for @post do |f| %>
+    <div class="field">
+      <%= f.label :タイトル %><br />
+      <%= f.text_field :title, autofocus: true, placeholder: "タイトルを入力してください", class: "form-control my-form" %>
+    </div>
+    <!--<p>名前</p>-->
+    <!--<%= f.text_field :title %>-->
+    
+    <div class="field">
+      <%= f.label :コメント %><br />
+      <%= f.text_area :content, autofocus: true, class: "form-control my-form" %>
+    </div>
+    
+    <!--<p>内容</p>-->
+    <!--<%= f.text_area :content %>-->
+    <hr>
+    <%= f.submit "登録する", class: "btn btn-primary" %>
+  <% end %><br>
+  <a href="/posts" class= "btn btn-primary">トップに戻る</a>
+</div>
