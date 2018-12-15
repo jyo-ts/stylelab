@@ -1,0 +1,8 @@
+<h1>投稿</h1>
+<P><%= @post.title %></P>
+<p><%= @post.content %></p>
+<br>
+<p><a href="/" class= "btn btn-primary">topに戻る</a></p>
+<br>
+<!--<%= link_to "topに戻る", "/", class: "btn btn-primary" %>-->
+<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>

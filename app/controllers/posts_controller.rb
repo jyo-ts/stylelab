@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
-    flash[:notice] = "投稿"
   end
   
   def index
@@ -14,7 +13,9 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.create(params.require(:post).permit(:title, :content))
+    @post = Post.create(params.require(:post).permit(:title, :content, :image_name))
+    @post.save
+    redirect_to "/posts"
   end
   
   def edit
@@ -22,8 +23,13 @@ class PostsController < ApplicationController
   end
   
   def update
+    @post = Post.find(params[:id])
+    @post.update(params.require(:post).permit(:title, :content, :image_name))
+    
   end
   
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
   end
 end
