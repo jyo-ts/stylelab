@@ -8,8 +8,15 @@
   </div>
   <!--<%= f.text_area :content, :class => "form-control my-form" %>-->
   <br>
-  <p>コメント</p>
-  <%= f.text_area :content, :class => "form-control my-form" %>
+  <div class="field">
+    <%= f.label :コメント %>
+    <%= f.text_area :content, :class => "form-control my-form" %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :画像をアップロード %>
+    <%= f.file_field :image_name, class: "form-control my-form" %>
+  </div>
   <hr>
   <%= f.submit "変更する", :class => "btn btn-primary" %>
 <% end %>

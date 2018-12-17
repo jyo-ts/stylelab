@@ -1,8 +1,20 @@
 <h1>投稿</h1>
-<P><%= @post.title %></P>
-<p><%= @post.content %></p>
+<hr>
+<p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
+<P>タイトル：<%= @post.title %></P>
+<h4>コメント：<%= @post.content %></h4>
+<small><%= @post.created_at %></small>
+<hr>
+<p><%= @post.image_name %></p>
 <br>
-<p><a href="/" class= "btn btn-primary">topに戻る</a></p>
-<br>
-<!--<%= link_to "topに戻る", "/", class: "btn btn-primary" %>-->
-<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>
+<!--<p><a href="/" class= "btn btn-primary">topに戻る</a></p>-->
+<!--<br>-->
+<p><%= link_to "topに戻る", root_path, class: "btn btn-primary" %></p>
+<!--<p><a href="/posts/<%= @post.id %>/edit">投稿を編集する</a></p>-->
+<% if user_signed_in? %>
+  <% if @post.user_id == current_user.id %>
+    <p><%= link_to "投稿を編集する", edit_post_path, class:"btn btn-primary" %></p>
+    <%= link_to "削除する", post_path(@post.id), method: :delete, class: "btn btn-primary", data: {confirm: "本当に削除しますか？"} %>
+  <% end %>
+<% end %>
+<!--<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>-->

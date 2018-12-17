@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
   end
   
   def index
@@ -13,23 +14,41 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.create(params.require(:post).permit(:title, :content, :image_name))
+    @post = Post.create(params.require(:post).permit(:title, :content, :image_name, :user_id).merge(:user_id => current_user.id))
+    @user = User.find(@post.user_id)
     @post.save
     redirect_to "/posts"
   end
   
   def edit
     @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
+    if @post.user_id == current_user.id
+    else
+      redirect_to "/posts"
+      flash[:alert] ="無効なユーザー"
+    end
   end
   
   def update
     @post = Post.find(params[:id])
-    @post.update(params.require(:post).permit(:title, :content, :image_name))
-    
+    @user = User.find(@post.user_id)
+    if @post.user_id == current_user
+      @post.update(params.require(:post).permit(:title, :content, :image_name))
+    else
+      redirect_to "/posts"
+      flash[:alert] ="無効なユーザー"
+    end
   end
   
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
+    @user = User.find(@post.user_id)
+    if @post.user_id == current_user.id
+      @post.destroy
+    else
+      redirect_to "/posts"
+      flash[:alert] ="無効なユーザー"
+    end
   end
 end

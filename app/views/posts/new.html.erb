@@ -6,8 +6,6 @@
       <%= f.label :タイトル %><br />
       <%= f.text_field :title, autofocus: true, placeholder: "タイトルを入力してください", class: "form-control my-form" %>
     </div>
-    <!--<p>名前</p>-->
-    <!--<%= f.text_field :title %>-->
     
     <div class="field">
       <%= f.label :コメント %><br />
@@ -18,8 +16,7 @@
       <%=f.label "画像をアップロード" %><br>
       <%= f.file_field :image_name, class: "form-control my-form" %>
     </div>
-    <!--<p>内容</p>-->
-    <!--<%= f.text_area :content %>-->
+
     <hr>
     <%= f.submit "登録する", class: "btn btn-primary" %>
   <% end %><br>

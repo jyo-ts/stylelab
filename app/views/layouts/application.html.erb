@@ -24,10 +24,15 @@
         </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="">Post</a></li>
-              <li><a href="/users/sign_up">登録する</a></li>
-              <li><a href="/users/sign_in">ログイン</a></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
+              
+              <% if user_signed_in? %>
+                <li><a href="/users/<%= current_user.id %>">ユーザー情報</a></li>
+                <li><a href="">Post</a></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
+              <% else %>
+                <li><a href="/users/sign_up">登録する</a></li>
+                <li><a href="/users/sign_in">ログイン</a></li>
+              <% end %>
             </ul>
           </div>
       </div>
