@@ -36,6 +36,10 @@ gem 'execjs'
 gem 'devise'
 gem 'paperclip'
 
+# for image uploader with AWS S3
+gem 'carrierwave'
+gem 'fog-aws'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

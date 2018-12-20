@@ -1,0 +1,13 @@
+<h1>stylist情報</h1>
+<hr>
+<P><%= image_tag @user.image.url(:medium) %></P>
+<br><br>
+<p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
+<p>性別：<%= @user.gender %></p>
+<p>shop：<%= @user.salon_name %></p>
+<p>shopホームページ：<%= @user.salon_url %></p>
+<p>自己紹介：<%= @user.profile %></p>
+<hr>
+<p><a href="/posts" class="btn btn-info">トップに戻る</a></p>
+<p><a href="/users" class="btn btn-primary">ユーザー一覧に戻る</a></p>
+<p><a href="/users/<%= @user.id %>/edit" class="btn btn-success">ユーザー情報を編集する</a>

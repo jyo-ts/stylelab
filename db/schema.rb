@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_14_024338) do
+ActiveRecord::Schema.define(version: 2018_12_20_155639) do
 
   create_table "coupon_orders", force: :cascade do |t|
     t.integer "coupon_id"
@@ -51,6 +51,11 @@ ActiveRecord::Schema.define(version: 2018_12_14_024338) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "post_details", force: :cascade do |t|
     t.integer "post_id"
     t.string "file_name"
@@ -66,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_024338) do
     t.string "image_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -85,8 +91,8 @@ ActiveRecord::Schema.define(version: 2018_12_14_024338) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "name"
-    t.string "explain"
+    t.string "name", default: "新規チャット"
+    t.string "explain", default: "説明はありません"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
