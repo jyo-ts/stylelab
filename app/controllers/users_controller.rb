@@ -18,4 +18,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(params.require(:user).permit(:first_name, :last_name, :salon_name, :salon_url, :profile, :image))
   end
+  
+  def following
+    @user = User.find(params[:id])
+    @users = @user.followings
+    render 'show_follow'
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follower'
+  end
 end

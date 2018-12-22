@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_20_155639) do
+ActiveRecord::Schema.define(version: 2018_12_22_142827) do
 
   create_table "coupon_orders", force: :cascade do |t|
     t.integer "coupon_id"
@@ -51,11 +51,6 @@ ActiveRecord::Schema.define(version: 2018_12_20_155639) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "post_details", force: :cascade do |t|
     t.integer "post_id"
     t.string "file_name"
@@ -75,10 +70,13 @@ ActiveRecord::Schema.define(version: 2018_12_20_155639) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "follower"
-    t.integer "followed"
+    t.integer "follower_id"
+    t.integer "following_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -117,6 +115,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_155639) do
     t.string "image_content_type"
     t.bigint "image_file_size"
     t.datetime "image_updated_at"
+    t.integer "age"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

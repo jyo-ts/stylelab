@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
-    if @post.user_id == current_user
+    if @post.user_id == current_user.id
       @post.update(params.require(:post).permit(:title, :content, :image_name, :image))
     else
       redirect_to "/posts"
