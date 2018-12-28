@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-xs-6">
 <h1>stylist情報</h1>
 <hr>
 <P><%= image_tag @user.image.url(:medium) %></P>
@@ -8,9 +10,19 @@
 <p>salon：<%= @user.salon_name %></p>
 <p>salonホームページ：<%= @user.salon_url %></p>
 <p>自己紹介：<%= @user.profile %></p>
+<% if @user.id == current_user.id %>
+  <p><a href="/users/<%= @user.id %>/edit" class="btn btn-success">ユーザー情報を編集する</a></p>
+  <p><a href="/rooms" class="btn btn-warning">TalkRoom一覧</a></p>
+<% else %>
+  <%= form_for @room do |f| %>
+    <%= f.submit "TALK", class: "btn btn-warning" %>
+  <% end %>
+<% end %>
+<br>
 <%= render 'follow_form' %>
 <%= render 'stats' %>
+  </div>
+</div>
 <hr>
 <p><a href="/posts" class="btn btn-info">トップに戻る</a></p>
-<p><a href="/users" class="btn btn-primary">ユーザー一覧に戻る</a></p>
-<p><a href="/users/<%= @user.id %>/edit" class="btn btn-success">ユーザー情報を編集する</a>
+<!--<p><a href="/users" class="btn btn-primary">ユーザー一覧に戻る</a></p>-->

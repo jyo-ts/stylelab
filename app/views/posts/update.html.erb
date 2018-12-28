@@ -3,8 +3,8 @@
 <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
 <P>タイトル：<%= @post.title %></P>
 <h4>コメント：<%= @post.content %></h4>
-<p><%= @post.image_name %></p>
-<%= image_tag @post.image.to_s %><br>
+<%= form.file_field :images, multiple: true %>
+<!--<%= image_tag @post.image.to_s %><br>-->
 <hr>
 <!--<a href="/posts">トップに戻る</a>-->
 <%= link_to "topに戻る", root_path, class: "btn btn-primary" %>

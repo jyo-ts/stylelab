@@ -7,8 +7,13 @@ class RelationshipsController < ApplicationController
   end
   
   def destroy
-    @user = Relationships.find(params[:id]).following
-    current_user.unfollow!(@user)
-    redirect_to @user
+    logger.debug("=================== current_user.id = #{current_user.id}")
+    @user = Relationship.find_by(follower_id: current_user.id, following_id: params[:id])
+    @user.destroy
+    redirect_to "/users/#{current_user.id}"
+    
+    # @user = Relationship.find(params[:id]).following
+    # current_user.unfollow!(@user)
+    # redirect_to @user
   end
 end

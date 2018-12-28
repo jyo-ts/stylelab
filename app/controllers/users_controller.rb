@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if @user.id == current_user.id
+    else
+      @room = Room.new
+    end
   end
 
   def index
@@ -16,7 +20,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(params.require(:user).permit(:first_name, :last_name, :salon_name, :salon_url, :profile, :image))
+    @user.update(params.require(:user).permit(:first_name, :last_name, :age, :salon_name, :salon_url, :profile, :image))
   end
   
   def following

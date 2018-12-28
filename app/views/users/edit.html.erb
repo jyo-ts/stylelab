@@ -16,16 +16,20 @@
   <%= f.text_field :last_name, class: "form-control my-form" %>
 </div>
 <div class="field">
-  <%= f.label :shop %>
+  <%= f.label :年齢 %>
+  <%= f.text_field :age, class: "form-control my-form" %>
+</div>
+<div class="field">
+  <%= f.label :salon %>
   <%= f.text_field :salon_name, class: "form-control my-form" %>
 </div>
 <div class="field">
-  <%= f.label :shopホームページ %>
+  <%= f.label :salon_url %>
   <%= f.text_field :salon_url, class: "form-control my-form" %>
 </div>
 <div class="field">
   <%= f.label :自己紹介 %>
-  <%= f.text_field :profile, class: "form-control my-form" %>
+  <%= f.text_area :profile, class: "form-control my-form" %>
 </div>
   <hr>
   <%= f.submit "登録する", :class => "btn btn-primary" %>

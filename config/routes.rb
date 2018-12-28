@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :welcome, :only => [:index]
   resources :users, :only => [:show, :index, :edit, :update]
   resources :messages, :only => [:create]
-  resources :rooms, :only => [:create, :show, :index, :edit, :update]
+  resources :rooms, :only => [:create, :show, :index, :edit, :update, :destroy]
   
   resources :users do
     member do

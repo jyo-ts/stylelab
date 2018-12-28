@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.create(params.require(:post).permit(:title, :content, :image_name, :user_id, :image).merge(:user_id => current_user.id))
+    @post = Post.create(post_params)
     @user = User.find(@post.user_id)
     @post.save
     redirect_to "/posts"
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
     if @post.user_id == current_user.id
-      @post.update(params.require(:post).permit(:title, :content, :image_name, :image))
+      @post.update(params.require(:post).permit(:title, :content, {images: []}))
     else
       redirect_to "/posts"
       flash[:alert] ="無効なユーザー"
@@ -51,4 +51,9 @@ class PostsController < ApplicationController
       flash[:alert] ="無効なユーザー"
     end
   end
+  
+  private 
+    def post_params
+      params.require(:post).permit(:title, :content, {images: []})
+    end
 end

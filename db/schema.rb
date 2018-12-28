@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_22_142827) do
+ActiveRecord::Schema.define(version: 2018_12_28_094006) do
 
   create_table "coupon_orders", force: :cascade do |t|
     t.integer "coupon_id"
@@ -63,10 +63,9 @@ ActiveRecord::Schema.define(version: 2018_12_22_142827) do
     t.string "title"
     t.integer "user_id"
     t.text "content"
-    t.string "image_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
+    t.json "images"
   end
 
   create_table "relationships", force: :cascade do |t|
