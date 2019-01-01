@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
          
   has_attached_file :image, styles: { medium: "300x300>", thumb: "50x50>" }
   

@@ -27,31 +27,15 @@
   
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.radio_button :gender, "m", autofocus: true %>男性
-    <%= f.radio_button :gender, "f", autofocus: true %>女性
-    <%= f.radio_button :gender, "o", autofocus: true %>その他
-  </div>
-  
-  <div class="field">
-    <%= f.label :icon_name %><br />
-    <%= f.text_field :icon_name, autofocus: true, class: "form-control my-form" %>
+    <%= f.radio_button :gender, "男性", autofocus: true %>男性
+    <%= f.radio_button :gender, "女性", autofocus: true %>女性
+    <%= f.radio_button :gender, "その他", autofocus: true %>その他
   </div>
   
   <div class="field">
     <%= f.label :profile %><br />
     <%= f.text_area :profile, autofocus: true, class: "form-control my-form" %>
   </div>
-  
-  <div class="field">
-    <%= f.label :salon_name %><br />
-    <%= f.text_field :salon_name, autofocus: true, class: "form-control my-form" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :salon_url %><br />
-    <%= f.text_field :salon_url, autofocus: true, class: "form-control my-form" %>
-  </div>
-  
 
   <div class="field">
     <%= f.label :email %><br />

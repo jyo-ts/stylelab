@@ -1,6 +1,7 @@
-<h1>ユーザー情報を編集する</h1>
+<h1>Profileを編集する</h1>
 <hr>
 <%= form_for @user do |f| %>
+<% if User.find(current_user.id).user_type == "s" %>
 <div class="field">
     <%= f.label :image %><br />
     <%= image_tag @user.image.url(:medium) %>
@@ -8,8 +9,8 @@
     <%= f.file_field :image, autofocus: true, class: "form-control my-form" %>
 </div>
 <div class="field">
-  <%= f.label :苗字 %>
-  <%= f.text_field :first_name, class: "form-control my-form" %>
+    <%= f.label :苗字 %>
+    <%= f.text_field :first_name, class: "form-control my-form" %>
 </div>
 <div class="field">
   <%= f.label :名前 %>
@@ -31,8 +32,32 @@
   <%= f.label :自己紹介 %>
   <%= f.text_area :profile, class: "form-control my-form" %>
 </div>
+<% else %>
+<div class="field">
+    <%= f.label :image %><br />
+    <%= image_tag @user.image.url(:medium) %>
+    <br><br>
+    <%= f.file_field :image, autofocus: true, class: "form-control my-form" %>
+</div>
+<div class="field">
+    <%= f.label :苗字 %>
+    <%= f.text_field :first_name, class: "form-control my-form" %>
+</div>
+<div class="field">
+  <%= f.label :名前 %>
+  <%= f.text_field :last_name, class: "form-control my-form" %>
+</div>
+<div class="field">
+  <%= f.label :年齢 %>
+  <%= f.text_field :age, class: "form-control my-form" %>
+</div>
+<div class="field">
+  <%= f.label :自己紹介 %>
+  <%= f.text_area :profile, class: "form-control my-form" %>
+</div>
   <hr>
   <%= f.submit "登録する", :class => "btn btn-primary" %>
+<% end %>
 <% end %>
 <hr>
 <a href="/users/<%= @user.id %>" class="btn btn-info">ユーザー情報に戻る</a>

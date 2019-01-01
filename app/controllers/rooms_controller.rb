@@ -4,29 +4,47 @@ class RoomsController < ApplicationController
   
   def create
     @room = Room.create
+    @entry1 = Entry.create(:room_id => @room.id, :user_id => current_user.id)
+    @entry2 = Entry.create(params.require(:entry).permit(:user_id, :room_id).merge(:room_id => @room.id))
     redirect_to "/rooms/#{@room.id}"
     flash[:notice] = "Let's talk！"
   end
   
   def show
     @room = Room.find(params[:id])
-    @messages = @room.messages
-    @message = Message.new
+    if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?
+      @messages = @room.messages
+      @message = Message.new
+      @entries = @room.entries
+    else
+      redirect_back(fallback_location:root_path)
+      flash[alert] = "無効なユーザー"
+    end
   end
   
   def index
-    @rooms = Room.all
+    @entries = current_user.entries
   end
   
   def edit
     @room = Room.find(params[:id])
+    if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?
+    else
+      flash[alert] = "無効なユーザー"
+      redirect_back(fallback_location:root_path)
+    end
   end
   
   def update
     @room = Room.find(params[:id])
-    @room.update(params.require(:room).permit(:name, :explain))
-    flash[:notice] = "TalkRoomの情報が変更されました"
-    redirect_back(fallback_location:root_path)
+    if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?
+      @room.update(params.require(:room).permit(:name, :explain))
+      flash[:notice] = "TalkRoomの情報が変更されました"
+      redirect_back(fallback_location:root_path)
+    else
+      flash[alert] = "無効なユーザー"
+      redirect_back(fallback_location:root_path)
+    end
   end
   
   def destroy

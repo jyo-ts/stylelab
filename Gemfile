@@ -40,6 +40,9 @@ gem 'paperclip'
 gem 'carrierwave'
 gem 'fog-aws'
 
+#画像の加工とか
+gem 'rmagick'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

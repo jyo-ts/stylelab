@@ -13,12 +13,12 @@
     </div>
     
     <div class="field">
-      <%=f.label :画像をアップロード %><br>
-      <%= f.file_field :images, :multiple => true %>
+      <%=f.label :画像をアップロード %><br />
+      <%= f.file_field :images, multiple: true %>
     </div>
 
     <hr>
     <%= f.submit "登録する", class: "btn btn-primary" %>
   <% end %><br>
-  <a href="/posts" class= "btn btn-primary">トップに戻る</a>
+  <a href="/posts" class= "btn btn-primary">投稿一覧</a>
 </div>

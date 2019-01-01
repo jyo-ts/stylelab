@@ -1,7 +1,7 @@
-<h1>チャット一覧</h1>
+<h1>TALK一覧</h1>
 <hr>
-<% @rooms.each do |r| %>
-  <a href="/rooms/<%= r.id %>"><%= r.name %></a>
+<% @entries.each do |e| %>
+  <a href="/rooms/<%= e.room_id %>"><%= e.room.name %></a>
   <hr>
 <% end %>
 <p><a href="/users/<%= current_user.id %>" class="btn btn-primary"><%= current_user.first_name %> <%= current_user.last_name %>さんの情報に戻る</a></p>

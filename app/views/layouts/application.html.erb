@@ -28,7 +28,7 @@
               <% if user_signed_in? %>
                 <li><a href="/users/<%= current_user.id %>"><%= current_user.first_name %><%= current_user.last_name %>さん</a></li>
                 
-                <li><a href="/posts">Post</a></li>
+                <li><a href="/posts/new">投稿する</a></li>
                 <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
               <% else %>
                 <li><a href="/users/sign_up">登録する</a></li>
