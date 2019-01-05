@@ -9,7 +9,9 @@
       <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.first_name %> <%= e.user.last_name %>さん</a></strong></h5>
     <% end %>
     <hr>
-    <a href="/rooms/<%= @room.id %>/edit" class="btn btn-success">情報を編集する</a>
+    <p><a href="/rooms/<%= @room.id %>/edit" class="btn btn-success">情報を編集する</a></p>
+    <%= link_to "TalkRoomを削除", room_path(@room.id), method: :delete, class: "btn btn-danger", data: {confirm: "本当に削除しますか？"} %>
+
   </div>
   <div class="col-xs-9">
     <% if @messages.present? %>

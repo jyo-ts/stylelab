@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-6">
-  <% if User.find(current_user.id).user_type == "s" %>
+  <% if User.find(@user.id).user_type == "s" %>
     <h1>stylist情報</h1>
     <hr>
     <P><%= image_tag @user.image.url(:medium) %></P>
@@ -43,6 +43,7 @@
     <hr>
     <% @entries.each do |e| %>
       <p><a href="/rooms/<%= e.room.id %>"><strong><%= e.room.name %></strong></a></p>
+      <%= link_to "削除", "/rooms/#{e.room.id}", method: :delete, data: {confirm: "本当に削除しますか？"} %>
       <hr>
     <% end %>
     <a href="/rooms" class="btn btn-info">TALK一覧を見る</a>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_29_154411) do
+ActiveRecord::Schema.define(version: 2019_01_05_151844) do
 
   create_table "coupon_orders", force: :cascade do |t|
     t.integer "coupon_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_12_29_154411) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "post_detail_id"
+    t.integer "post_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(version: 2018_12_29_154411) do
     t.string "last_name"
     t.string "first_name"
     t.string "gender"
-    t.string "icon_name"
     t.text "profile"
     t.string "user_type"
     t.string "salon_name"
@@ -112,7 +111,7 @@ ActiveRecord::Schema.define(version: 2018_12_29_154411) do
     t.datetime "updated_at", null: false
     t.string "image_file_name"
     t.string "image_content_type"
-    t.bigint "image_file_size"
+    t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "age"
     t.index ["email"], name: "index_users_on_email", unique: true

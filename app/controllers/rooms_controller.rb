@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
       @entries = @room.entries
     else
       redirect_back(fallback_location:root_path)
-      flash[alert] = "無効なユーザー"
+      flash[:alert] = "無効なユーザー"
     end
   end
   
@@ -30,7 +30,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?
     else
-      flash[alert] = "無効なユーザー"
+      flash[:alert] = "無効なユーザー"
       redirect_back(fallback_location:root_path)
     end
   end
@@ -42,7 +42,7 @@ class RoomsController < ApplicationController
       flash[:notice] = "TalkRoomの情報が変更されました"
       redirect_back(fallback_location:root_path)
     else
-      flash[alert] = "無効なユーザー"
+      flash[:alert] = "無効なユーザー"
       redirect_back(fallback_location:root_path)
     end
   end
@@ -51,6 +51,6 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.destroy
     flash[:notice] ="TalkRoomを削除しました"
-    redirect_to "/users/#{current_user.id}>"
+    redirect_to "/users/#{current_user.id}"
   end
 end

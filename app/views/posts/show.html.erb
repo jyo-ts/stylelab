@@ -1,22 +1,31 @@
-<h1>投稿</h1>
-<hr>
-<p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
-<p>タイトル：<%= @post.title %></p>
-<% @post.images.each do |images| %>
-  <%= image_tag(images.url) %>
-<% end %>
-<h4>コメント：<%= @post.content %></h4>
-<small><%= @post.created_at %></small>
-<hr>
-<br>
-<!--<p><a href="/" class= "btn btn-primary">topに戻る</a></p>-->
-<!--<br>-->
-<p><%= link_to "topに戻る", root_path, class: "btn btn-primary" %></p>
-<!--<p><a href="/posts/<%= @post.id %>/edit">投稿を編集する</a></p>-->
-<% if user_signed_in? %>
-  <% if @post.user_id == current_user.id %>
-    <p><%= link_to "投稿を編集する", edit_post_path, class:"btn btn-primary" %></p>
-    <%= link_to "削除する", post_path(@post.id), method: :delete, class: "btn btn-primary", data: {confirm: "本当に削除しますか？"} %>
+<div class="posts-show-item">
+  <h1>投稿</h1>
+  <hr>
+  <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
+  <p>タイトル：<%= @post.title %></p>
+  <% @post.images.each do |images| %>
+    <%= image_tag(images.url) %>
   <% end %>
-<% end %>
-<!--<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>-->
+  <h4>コメント：<%= @post.content %></h4>
+  <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+    <%= link_to "/likes/#{@post.id}/destroy", {method: "post"} do %>
+      <span class="fa fa-heart like-btn-unlike"></span>
+    <% end %>
+  <% else %>
+    <%= link_to "/likes/#{@post.id}/create", {method: "post"} do %>
+      <span class="fa fa-heart like-btn"></span>
+    <% end %>
+  <% end %>
+  <%= @likes_count %><br>
+  <small><%= @post.created_at %></small>
+  <hr>
+  <p><%= link_to "投稿一覧", "/posts", class: "btn btn-primary" %></p>
+  <%= link_to "#{@user.first_name} #{@user.last_name}さんの詳細ページ", "/users/#{@user.id}", class: "btn btn-primary" %>
+  <% if user_signed_in? %>
+    <% if @post.user_id == current_user.id %>
+      <p><%= link_to "投稿を編集する", edit_post_path, class:"btn btn-primary" %></p>
+      <%= link_to "削除する", post_path(@post.id), method: :delete, class: "btn btn-primary", data: {confirm: "本当に削除しますか？"} %>
+    <% end %>
+  <% end %>
+  <!--<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>-->
+</div>
