@@ -1,24 +1,26 @@
-<h1>投稿を編集する</h1>
-<hr>
-<%= form_for @post do |f| %>
-  <div class="field">
-    <%= f.label :タイトル %><br />
-    <%= f.text_field :title, autofocus: true, placeholder: "タイトルを変更する", class: "form-control my-form" %>
-  </div>
-  <!--<%= f.text_area :content, :class => "form-control my-form" %>-->
-  <br>
-  <div class="field">
-    <%= f.label :コメント %>
-    <%= f.text_area :content, :class => "form-control my-form" %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :画像をアップロード %><br>
-    <%= f.file_field :images, multiple: true %>
-  </div>
-  
+<div class="container main-page">
+  <h1>投稿を編集する</h1>
   <hr>
-  <%= f.submit "変更する", :class => "btn btn-primary" %>
-<% end %>
-<hr>
-<a href="/posts/<%= @post.id %>" class="btn btn-info">投稿に戻る</a>
+  <%= form_for @post do |f| %>
+    <div class="field">
+      <%= f.label :タイトル %><br />
+      <%= f.text_field :title, autofocus: true, placeholder: "タイトルを変更する", class: "form-control my-form" %>
+    </div>
+    <!--<%= f.text_area :content, :class => "form-control my-form" %>-->
+    <br>
+    <div class="field">
+      <%= f.label :コメント %>
+      <%= f.text_area :content, :class => "form-control my-form" %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :画像をアップロード %><br>
+      <%= f.file_field :images, multiple: true %>
+    </div>
+    
+    <hr>
+    <%= f.submit "変更する", :class => "btn btn-primary" %>
+  <% end %>
+  <hr>
+  <a href="/posts/<%= @post.id %>" class="btn btn-info">投稿に戻る</a>
+</div>

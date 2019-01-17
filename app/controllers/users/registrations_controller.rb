@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    @user = User.new(icon_name: "default_user.jpg")
     # logger.debug("========================= params[:user][:user_type] = #{params[:user][:user_type]}")
     # @user = User.last
     # @user.user_type = params[:user][:user_type]
@@ -53,7 +54,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute, :last_name, :first_name, :profile, :gender, :salon_name, :salon_url, :image, :age])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute, :last_name, :first_name, :profile, :gender, :salon_name, :salon_url, :image, :age, :icon_name])
   end
 
   # The path used after sign up.

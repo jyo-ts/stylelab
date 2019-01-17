@@ -1,8 +1,12 @@
+<div class="container main-page">
 <h1>投稿一覧</h1>
 <hr>
+<div class="post-icon">
 <% @posts.each do |p| %>
-  <p><a href="/users/<%= p.user_id %>"><%= User.find(p.user_id).first_name %><%= User.find(p.user_id).last_name %>様</a>の投稿</p>
-  <h3><a href="/posts/<%= p.id %>"><%= p.title %>:<%= p.content %></a></h3>
+  <h3><a href="/users/<%= p.user_id %>"><%= image_tag User.find(p.user_id).image.url(:thumb) %> <%= User.find(p.user_id).first_name %> <%= User.find(p.user_id).last_name %>様</a>の投稿</h3>
+  <h3><a href="/posts/<%= p.id %>"> <%= p.title %><br><%= p.content %></a></h3>
   <hr>
 <% end %>
-<a href="/posts/new" class= "btn btn-primary">新しく投稿する</a>
+</div>
+<!--<a href="/posts/new" class= "btn btn-primary">新しく投稿する</a>-->
+</div>

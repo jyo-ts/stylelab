@@ -1,27 +1,29 @@
-<h1>ユーザー情報を変更しました。</h1>
-<hr>
-<% if User.find(current_user.id).user_type == "s" %>
-    <h1>stylist情報</h1>
-    <hr>
-    <P><%= image_tag @user.image.url(:medium) %></P>
-    <br><br>
-    <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
-    <p>性別：<%= @user.gender %></p>
-    <p>年齢：<%= @user.age %>歳</p>
-    <p>salon：<%= @user.salon_name %></p>
-    <p>salonホームページ：<%= @user.salon_url %></p>
-    <p>自己紹介：<%= @user.profile %></p>
-  <% else %>
-    <h1>User情報</h1>
-    <hr>
-    <P><%= image_tag @user.image.url(:medium) %></P>
-    <br><br>
-    <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
-    <p>性別：<%= @user.gender %></p>
-    <p>年齢：<%= @user.age %>歳</p>
-    <p>自己紹介：<%= @user.profile %></p>
-  <% end %>
-<hr>
-<p><a href="/users/<%= @user.id %>" class="btn btn-primary">ユーザー情報に戻る</a></p>
-<p><a href="/users/<%= @user.id %>/edit" class="btn btn-success">ユーザー情報の編集に戻る</a></p>
-<p><a href="/posts" class="btn btn-info">投稿一覧</a></p>
+<div class="container main-page">
+  <h1>ユーザー情報を変更しました。</h1>
+  <hr>
+  <% if User.find(current_user.id).user_type == "s" %>
+      <h1>stylist情報</h1>
+      <hr>
+      <P><%= image_tag @user.image.url(:medium) %></P>
+      <br><br>
+      <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
+      <p>性別：<%= @user.gender %></p>
+      <p>年齢：<%= @user.age %>歳</p>
+      <p>salon：<%= @user.salon_name %></p>
+      <p>salonホームページ：<%= @user.salon_url %></p>
+      <p>自己紹介：<%= @user.profile %></p>
+    <% else %>
+      <h1>User情報</h1>
+      <hr>
+      <P><%= image_tag @user.image.url(:medium) %></P>
+      <br><br>
+      <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
+      <p>性別：<%= @user.gender %></p>
+      <p>年齢：<%= @user.age %>歳</p>
+      <p>自己紹介：<%= @user.profile %></p>
+    <% end %>
+  <hr>
+  <p><a href="/users/<%= @user.id %>" class="btn btn-primary">ユーザー情報に戻る</a></p>
+  <p><a href="/users/<%= @user.id %>/edit" class="btn btn-success">ユーザー情報の編集に戻る</a></p>
+  <p><a href="/posts" class="btn btn-info">投稿一覧</a></p>
+</div>

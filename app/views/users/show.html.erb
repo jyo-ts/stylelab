@@ -1,9 +1,12 @@
+<div class="container main-page">
 <div class="row">
   <div class="col-xs-6">
   <% if User.find(@user.id).user_type == "s" %>
-    <h1>stylist情報</h1>
+    <h1>StylistProfile</h1>
     <hr>
-    <P><%= image_tag @user.image.url(:medium) %></P>
+    <div class="user_icon">
+      <%= image_tag @user.image.url(:medium) %>
+    </div>
     <br><br>
     <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
     <p>性別：<%= @user.gender %></p>
@@ -12,7 +15,7 @@
     <p>salonホームページ：<%= @user.salon_url %></p>
     <p>自己紹介：<%= @user.profile %></p>
   <% else %>
-    <h1>User情報</h1>
+    <h1>UserProfile</h1>
     <hr>
     <P><%= image_tag @user.image.url(:medium) %></P>
     <br><br>
@@ -50,6 +53,4 @@
   </div>
 <% end %>
 </div>
-<hr>
-<p><a href="/posts" class="btn btn-info">投稿一覧</a></p>
-<!--<p><a href="/users" class="btn btn-primary">ユーザー一覧に戻る</a></p>-->
+</div>

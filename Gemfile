@@ -43,6 +43,8 @@ gem 'fog-aws'
 #画像の加工とか
 gem 'rmagick'
 
+gem 'font-awesome-rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

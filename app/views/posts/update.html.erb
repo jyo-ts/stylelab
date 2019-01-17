@@ -1,11 +1,13 @@
-<h1>投稿を変更しました。</h1>
-<hr>
-<p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
-<P>タイトル：<%= @post.title %></P>
-<% @post.images.each do |images| %>
-  <%= image_tag(images.url) %>
-<% end %>
-<h4>コメント：<%= @post.content %></h4>
-<hr>
-<!--<a href="/posts">トップに戻る</a>-->
-<%= link_to "topに戻る", root_path, class: "btn btn-primary" %>
+<div class="container main-page">
+  <h1>投稿を変更しました。</h1>
+  <hr>
+  <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
+  <P>タイトル：<%= @post.title %></P>
+  <% @post.images.each do |images| %>
+    <%= image_tag(images.url) %>
+  <% end %>
+  <h4>コメント：<%= @post.content %></h4>
+  <hr>
+  <!--<a href="/posts">トップに戻る</a>-->
+  <%= link_to "topに戻る", root_path, class: "btn btn-primary" %>
+</div>

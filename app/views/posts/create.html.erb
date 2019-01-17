@@ -1,7 +1,9 @@
-<h1>投稿が完了しました</h1>
-<hr>
-<p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
-<P>タイトル：<%= @post.title %></P>
-<h4>コメント：<%= @post.content %></h4>
-<hr>
-<a href="/posts" class= "btn btn-primary">トップに戻る</a>
+<div class="container main-page">
+  <h1>投稿が完了しました</h1>
+  <hr>
+  <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
+  <P>タイトル：<%= @post.title %></P>
+  <h4>コメント：<%= @post.content %></h4>
+  <hr>
+  <a href="/posts" class= "btn btn-primary">トップに戻る</a>
+</div>

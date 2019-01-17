@@ -1,11 +1,16 @@
+<div class="container main-page">
 <div class="posts-show-item">
-  <h1>投稿</h1>
-  <hr>
-  <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
-  <p>タイトル：<%= @post.title %></p>
+  <div class="post-icon">
+    <h2><%= image_tag @user.image.url(:thumb) %> <%= link_to "#{@user.first_name} #{@user.last_name}さん", "/users/#{@user.id}" %></h2>
+  </div>
+  <!--<p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>-->
+<!--<%= link_to "#{@user.first_name} #{@user.last_name}さん", "/users/#{@user.id}" %>-->
+<p>タイトル：<%= @post.title %></p>
+ <hr>
   <% @post.images.each do |images| %>
     <%= image_tag(images.url) %>
   <% end %>
+<hr>
   <h4>コメント：<%= @post.content %></h4>
   <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
     <%= link_to "/likes/#{@post.id}/destroy", {method: "post"} do %>
@@ -17,10 +22,7 @@
     <% end %>
   <% end %>
   <%= @likes_count %><br>
-  <small><%= @post.created_at %></small>
-  <hr>
-  <p><%= link_to "投稿一覧", "/posts", class: "btn btn-primary" %></p>
-  <%= link_to "#{@user.first_name} #{@user.last_name}さんの詳細ページ", "/users/#{@user.id}", class: "btn btn-primary" %>
+  <small><%= @post.created_at %></small><br><br>
   <% if user_signed_in? %>
     <% if @post.user_id == current_user.id %>
       <p><%= link_to "投稿を編集する", edit_post_path, class:"btn btn-primary" %></p>
@@ -28,4 +30,5 @@
     <% end %>
   <% end %>
   <!--<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>-->
+</div>
 </div>

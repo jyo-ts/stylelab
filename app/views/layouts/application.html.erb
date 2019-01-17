@@ -8,10 +8,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Permanent+Marker" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <!-- drawer.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+    <!-- iScroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+    <!-- drawer.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+    
   </head>
 
-  <body>
+  <body class="drawer drawer--left">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -21,25 +29,41 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
           </button>
-            <a href="/" class="navbar-brand">stylelab</a>
+          
+      <!--<button type="button" class="drawer-toggle drawer-hamburger">-->
+      <!--  <span class="sr-only">toggle navigation</span>-->
+      <!--  <span class="drawer-hamburger-icon"></span>-->
+      <!--</button>-->
+      <!--<nav class="drawer-nav" role="navigation">-->
+      <!--  <ul class="drawer-menu drawer-menu--right">-->
+  		  <!--  <li><%= link_to 'Nav1', '#', class: 'drawer-menu-item'%></li>-->
+      <!--    <li><%= link_to 'Nav2', '#', class: 'drawer-menu-item'%></li>-->
+      <!--  </ul>-->
+      <!--</nav>-->
+            <a href="/" class="navbar-brand"><%= fa_icon("home", text: "stylelab") %></a>
         </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               
               <% if user_signed_in? %>
-                <li><a href="/users/<%= current_user.id %>"><%= current_user.first_name %><%= current_user.last_name %>さん</a></li>
+                <li><a href="/users/<%= current_user.id %>"><%= fa_icon("user") %> <%= current_user.first_name %><%= current_user.last_name %>さん</a></li>
                 
-                <li><a href="/posts/new">投稿する</a></li>
-                <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
+                <li><a href="/posts/new"><%= fa_icon("pencil-alt", text: "投稿する") %></a></li>
+                <li><a href="/posts"><%= fa_icon("images", text: "投稿一覧") %></a></li>
+                <!--<li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>-->
+                <li><%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fas fa-sign-out-alt"></i> ログアウト
+                    <% end %>
+                </li>
               <% else %>
-                <li><a href="/users/sign_up">登録する</a></li>
-                <li><a href="/users/sign_in">ログイン</a></li>
+                <li><a href="/users/sign_up"><%= fa_icon("user-plus", text: "登録する") %></a></li>
+                <li><a href="/users/sign_in" class="navbar-brand"><%= fa_icon("sign-in", text: "log_in") %></a></li>
               <% end %>
             </ul>
           </div>
       </div>
     </nav>
-      <div class="container main-page">
+      <div class="container-fluid main-page">
         <% if notice %>
           <br>
           <p class="alert alert-success"><%= notice %></p>
@@ -48,7 +72,8 @@
           <br>
           <p class="alert alert-danger"><%= alert %></p>
         <% end %>
+       </div>
         <%= yield %>
-      </div>
+      <!--</div>-->
   </body>
 </html>
