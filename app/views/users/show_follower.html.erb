@@ -1,9 +1,11 @@
-<% @user.followers.each do |user| %><br>
-  <table>
-    <tr>
-      <td><%= user.first_name %><%= user.last_name %></td>
-      <td><%= link_to '詳細', user_path(user) %></td>
-    </tr>
-  </table>
-  <hr>
-<% end %>
+<div class="container main-page">
+  <% @user.followers.each do |user| %><br>
+    <table>
+      <tr>
+        <td><%= user.first_name %><%= user.last_name %></td>
+        <td><%= link_to '詳細', user_path(user) %></td>
+      </tr>
+    </table>
+    <hr>
+  <% end %>
+</div>

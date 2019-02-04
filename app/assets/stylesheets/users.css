@@ -1,0 +1,37 @@
+.user-icon img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid gray;
+  position: relative;
+}
+
+.user-profile-left-follow {
+  font-size: 18px;
+}
+
+.user-profile-right {
+  font-weight: bold;
+  font-size: 18px;
+  position: absolute;
+  top: 200px;
+  left: 500px;
+}
+
+.user-menus {
+  position: absolute;
+  top: 420px;
+  left: 500px;
+}
+
+.stylist-profile-right {
+  font-weight: bold;
+  font-size: 18px;
+  position: absolute;
+  top: 200px;
+  left: 500px;
+}
+ 
+   
+
+/*# sourceMappingURL=users.css.map */

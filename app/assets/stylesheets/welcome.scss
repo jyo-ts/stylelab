@@ -1,6 +1,6 @@
 .header-content {
   color: black;
-  font-size: 150px;
+  font-size: 200px;
   padding-top: 100px;
   font-family: 'Permanent Marker', cursive;
   font-family: 'Caveat Brush', cursive;
@@ -9,18 +9,23 @@
 .header-message {
   font-size: 27px;
   padding-top: 40px;
-  color: blue;
+  color: white;
+  font-weight: bold;
 }
 
 .img-top {
-  background: url(header16.jpg);
+  background: url(header17.jpg);
   background-position: center center;
   center: no-repeat; 
   background-size: cover;
   height: 680px;
-  width: auto;
+  // width: auto;
 }
 
 .botton {
   padding: 100px;
+}
+
+.container-fluid {
+  width: 100%;
 }

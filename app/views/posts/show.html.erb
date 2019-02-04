@@ -1,34 +1,43 @@
 <div class="container main-page">
-<div class="posts-show-item">
-  <div class="post-icon">
-    <h2><%= image_tag @user.image.url(:thumb) %> <%= link_to "#{@user.first_name} #{@user.last_name}さん", "/users/#{@user.id}" %></h2>
+  <div class="posts-show-item">
+      <div class="post-icon">
+        <h2><%= image_tag @user.image.url(:thumb) %> <%= link_to "#{@user.first_name} #{@user.last_name}さん", "/users/#{@user.id}" %></h2>
+      </div>
+        <p>タイトル：<%= @post.title %></p>
+          <hr>
+            <div class="row">
+              <div class=" col-xs-6 col-md-4">
+                <div class="post-img">
+                  <% @post.images.each do |images| %>
+                    <div class="image">
+                      <%= image_tag(images.url) %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+              <hr>
+              <h4>コメント：<%= @post.content %></h4>
+            <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+              <%= link_to "/likes/#{@post.id}/destroy", {method: "post"} do %>
+                <span class="fa fa-heart like-btn-unlike"></span>
+              <% end %>
+            <% else %>
+              <%= link_to "/likes/#{@post.id}/create", {method: "post"} do %>
+                <span class="fa fa-heart like-btn"></span>
+              <% end %>
+            <% end %>
+              <%= @likes_count %><br>
+                <small><%= @post.created_at %></small><br><br>
+             <div class="post-menus">
+                <% if user_signed_in? %>
+                  <% if @post.user_id == current_user.id %>
+                    <p><%= link_to "投稿を編集する", edit_post_path, class:"btn btn-default" %></p>
+                    <%= link_to "削除する", post_path(@post.id), method: :delete, class: "btn btn-default", data: {confirm: "本当に削除しますか？"} %>
+                  <% end %>
+                <% end %>
+             </div>
+    <!--<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>-->
+
   </div>
-  <!--<p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>-->
-<!--<%= link_to "#{@user.first_name} #{@user.last_name}さん", "/users/#{@user.id}" %>-->
-<p>タイトル：<%= @post.title %></p>
- <hr>
-  <% @post.images.each do |images| %>
-    <%= image_tag(images.url) %>
-  <% end %>
-<hr>
-  <h4>コメント：<%= @post.content %></h4>
-  <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
-    <%= link_to "/likes/#{@post.id}/destroy", {method: "post"} do %>
-      <span class="fa fa-heart like-btn-unlike"></span>
-    <% end %>
-  <% else %>
-    <%= link_to "/likes/#{@post.id}/create", {method: "post"} do %>
-      <span class="fa fa-heart like-btn"></span>
-    <% end %>
-  <% end %>
-  <%= @likes_count %><br>
-  <small><%= @post.created_at %></small><br><br>
-  <% if user_signed_in? %>
-    <% if @post.user_id == current_user.id %>
-      <p><%= link_to "投稿を編集する", edit_post_path, class:"btn btn-primary" %></p>
-      <%= link_to "削除する", post_path(@post.id), method: :delete, class: "btn btn-primary", data: {confirm: "本当に削除しますか？"} %>
-    <% end %>
-  <% end %>
-  <!--<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>-->
-</div>
 </div>

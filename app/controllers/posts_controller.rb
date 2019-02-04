@@ -15,10 +15,13 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
     @user = User.find(@post.user_id)
-    @post.save
-    redirect_to "/posts"
+    if @post.save
+      redirect_to "/posts"
+    else
+      render posts_path
+    end
   end
   
   def edit

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_08_134214) do
+ActiveRecord::Schema.define(version: 2019_01_17_141447) do
 
   create_table "coupon_orders", force: :cascade do |t|
     t.integer "coupon_id"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 2019_01_08_134214) do
   create_table "entries", force: :cascade do |t|
     t.integer "room_id"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.integer "follower"
+    t.integer "followed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

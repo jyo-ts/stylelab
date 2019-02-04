@@ -1,5 +1,7 @@
 <div class="container main-page">
-  <h1>投稿する</h1>
+  <div class="posts-title">
+    <h1>投稿する</h1>
+  </div>
   <hr>
   <%= form_for @post do |f| %>
     <div class="field">
@@ -18,7 +20,7 @@
     </div>
 
     <hr>
-    <%= f.submit "登録する", class: "btn btn-primary" %>
+    <%= f.submit "登録する", class: "btn btn-default" %>
   <% end %><br>
-  <a href="/posts" class= "btn btn-primary">投稿一覧</a>
+  <a href="/posts" class= "btn btn-default">投稿一覧</a>
 </div>

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :users, :only => [:show, :index, :edit, :update]
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index, :edit, :update, :destroy]
+  resources :friends, :only => [:index]
+  post "friends/:id" => "friends#create"
   # resources :likes, :only => [:create, :destroy]
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"

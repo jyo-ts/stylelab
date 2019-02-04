@@ -1,0 +1,18 @@
+.user-left img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid gray;
+}
+
+.user-left {
+  float: left;
+  width: 5%;
+}
+
+.user-right {
+  font-size: 25px;
+  line-height: 2; 
+}
+
+/*# sourceMappingURL=friends.css.map */

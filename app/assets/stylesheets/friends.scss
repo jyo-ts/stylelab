@@ -1,0 +1,20 @@
+// Place all the styles related to the Friends controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-left img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid gray;
+}
+
+.user-left {
+  float: left;
+  width: 6%;
+}
+
+.user-right {
+  font-size: 25px;
+  line-height: 2;
+}
