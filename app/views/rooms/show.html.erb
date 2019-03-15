@@ -30,7 +30,7 @@
           <p class="alert alert-info">
           <%= m.content %>
           <br><br>
-          <small><strong><a href="/users/<%= m.user_id %>"><%= m.user.frist_name %> <%= m.user.last_name %>さん</a></strong></small>
+          <small><strong><a href="/users/<%= m.user_id %>"><%= m.user.first_name %> <%= m.user.last_name %>さん</a></strong></small>
           </p>
           </h4>
         <% end %>
@@ -46,10 +46,10 @@
       <%= f.hidden_field :room_id, :value => @room.id %>
       <br>
       <div class="text-center">
-        <%= button_tag type: 'submit', class: 'btn btn-default' do %>
-        <i class="fa fa-paper-plane fa-3x"></i>
-        <% end %>
-        <!--<%= f.submit "TALK", class: "btn btn-primary btn-lg" %>-->
+        <!--<%= button_tag type: 'submit', class: 'btn btn-default' do %>-->
+        <!--<i class="fa fa-paper-plane fa-lg"></i>-->
+        <!--<% end %>-->
+        <%= f.submit "TALK", class: "btn btn-default btn-lg" %>
       </div>
     <% end %>
   </div>

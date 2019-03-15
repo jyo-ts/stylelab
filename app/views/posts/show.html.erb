@@ -1,12 +1,14 @@
 <div class="container main-page">
+<div class="row">
+  <div class="col-xs-6">
   <div class="posts-show-item">
       <div class="post-icon">
         <h2><%= image_tag @user.image.url(:thumb) %> <%= link_to "#{@user.first_name} #{@user.last_name}さん", "/users/#{@user.id}" %></h2>
       </div>
         <p>タイトル：<%= @post.title %></p>
           <hr>
-            <div class="row">
-              <div class=" col-xs-6 col-md-4">
+            <!--<div class="row">-->
+              <!--<div class=" col-xs-6">-->
                 <div class="post-img">
                   <% @post.images.each do |images| %>
                     <div class="image">
@@ -14,8 +16,8 @@
                     </div>
                   <% end %>
                 </div>
-              </div>
-            </div>
+              <!--</div>-->
+            <!--</div>-->
               <hr>
               <h4>コメント：<%= @post.content %></h4>
             <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
@@ -38,6 +40,7 @@
                 <% end %>
              </div>
     <!--<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>-->
-
+</div>
+</div>
   </div>
 </div>

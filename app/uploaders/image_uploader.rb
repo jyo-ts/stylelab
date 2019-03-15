@@ -5,7 +5,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development?
-    storage :file
+    storage :fog
   elsif Rails.env.test?
     storage :fog
   else
@@ -52,7 +52,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   
   
   # 画像の上限を640x480にする
-  process :resize_to_limit => [400, 225]
+  # process :resize_to_limit => [400, 225]
  
   # 保存形式をJPGにする
   process :convert => 'jpg'
