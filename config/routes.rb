@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :welcome, :only => [:index]
   resources :users, :only => [:show, :index, :edit, :update]
-  resources :messages, :only => [:create]
+  resources :messages, :only => [:create, :index]
   resources :rooms, :only => [:create, :show, :index, :edit, :update, :destroy]
   resources :friends, :only => [:index]
   post "friends/:id" => "friends#create"

@@ -7,8 +7,6 @@
       </div>
         <p>タイトル：<%= @post.title %></p>
           <hr>
-            <!--<div class="row">-->
-              <!--<div class=" col-xs-6">-->
                 <div class="post-img">
                   <% @post.images.each do |images| %>
                     <div class="image">
@@ -16,8 +14,6 @@
                     </div>
                   <% end %>
                 </div>
-              <!--</div>-->
-            <!--</div>-->
               <hr>
               <h4>コメント：<%= @post.content %></h4>
             <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
