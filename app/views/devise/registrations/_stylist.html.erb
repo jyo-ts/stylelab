@@ -6,7 +6,8 @@
     
     <div class="field">
       <%= f.label :image %><br />
-      <%= image_tag @user.image.url(:medium) %>
+      <img src="<%= "/user_icons/default_user.jpg" %>">
+      <!--<%= image_tag @user.image.url(:medium) %>-->
       <br><br>
       <%= f.file_field :image, autofocus: true, class: "form-control my-form" %>
     </div>

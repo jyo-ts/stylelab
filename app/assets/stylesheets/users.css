@@ -32,6 +32,8 @@
   left: 500px;
 }
  
-   
+.users-title h1 {
+  font-weight: bold;
+} 
 
 /*# sourceMappingURL=users.css.map */
