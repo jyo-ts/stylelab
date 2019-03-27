@@ -5,7 +5,8 @@
         <h1>StylistProfile</h1>
         <hr>
           <div class="user_icon">
-            <%= image_tag @user.image.url(:medium) %>
+            <!--<%= image_tag @user.image.url(:medium) %>-->
+            <%= image_tag @user.photo.url(:thumb) %>
           </div><br>
             <div class="user-profile-left-follow">
               <%= render 'follow_form' %>
@@ -24,7 +25,8 @@
       <div class="user-plofile-left">
         <h1>UserProfile</h1>
         <hr>
-          <P><%= image_tag @user.image.url(:medium) %></P>
+            <%= image_tag @user.photo.url(:thumb) %>
+          <!--<P><%= image_tag @user.image.url(:medium) %></P>-->
             <br><br>
             <div class="user-profile-left-follow">
               <%= render 'follow_form' %>

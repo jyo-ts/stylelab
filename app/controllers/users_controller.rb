@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(params.require(:user).permit(:first_name, :last_name, :age, :salon_name, :salon_url, :profile, :image, :icon_name))
+    @user.update(params.require(:user).permit(:first_name, :last_name, :age, :salon_name, :salon_url, :profile, :image, :icon_name, :photo))
   end
   
   def following

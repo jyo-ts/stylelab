@@ -6,7 +6,7 @@
     <div class="post-icon">
       <% @posts.each do |p| %>
         <div class="well">
-          <h3><a href="/users/<%= p.user_id %>"><%= image_tag User.find(p.user_id).image.url(:thumb) %> <%= User.find(p.user_id).first_name %> <%= User.find(p.user_id).last_name %>様</a>の投稿</h3>
+          <h3><a href="/users/<%= p.user_id %>"><%= image_tag User.find(p.user_id).photo.url(:thumb) %> <%= User.find(p.user_id).first_name %> <%= User.find(p.user_id).last_name %>様</a>の投稿</h3>
           <h3><a href="/posts/<%= p.id %>"> <%= p.title %><br><%= p.content %></a></h3>
         </div>
         <!--<hr>-->

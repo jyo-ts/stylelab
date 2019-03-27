@@ -3,7 +3,7 @@
   <div class="col-xs-6">
   <div class="posts-show-item">
       <div class="post-icon">
-        <h2><%= image_tag @user.image.url(:thumb) %> <%= link_to "#{@user.first_name} #{@user.last_name}さん", "/users/#{@user.id}" %></h2>
+        <h2><%= image_tag @user.photo.url(:thumb) %> <%= link_to "#{@user.first_name} #{@user.last_name}さん", "/users/#{@user.id}" %></h2>
       </div>
         <p>タイトル：<%= @post.title %></p>
           <hr>

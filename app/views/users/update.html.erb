@@ -4,7 +4,8 @@
   <% if User.find(current_user.id).user_type == "s" %>
       <h1>stylist情報</h1>
       <hr>
-      <P><%= image_tag @user.image.url(:medium) %></P>
+      <p><%= image_tag @user.photo.to_s %></p>
+      <!--<P><%= image_tag @user.image.url(:medium) %></P>-->
       <br><br>
       <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
       <p>性別：<%= @user.gender %></p>
@@ -15,7 +16,7 @@
     <% else %>
       <h1>User情報</h1>
       <hr>
-      <P><%= image_tag @user.image.url(:medium) %></P>
+      <P><%= image_tag @user.photo.url(:thumb) %></P>
       <br><br>
       <p>名前：<%= @user.first_name %><%= @user.last_name %>さん</p>
       <p>性別：<%= @user.gender %></p>
@@ -23,7 +24,7 @@
       <p>自己紹介：<%= @user.profile %></p>
     <% end %>
   <hr>
-  <p><a href="/users/<%= @user.id %>" class="btn btn-primary">ユーザー情報に戻る</a></p>
-  <p><a href="/users/<%= @user.id %>/edit" class="btn btn-success">ユーザー情報の編集に戻る</a></p>
-  <p><a href="/posts" class="btn btn-info">投稿一覧</a></p>
+  <p><a href="/users/<%= @user.id %>" class="btn btn-default">ユーザー情報に戻る</a></p>
+  <p><a href="/users/<%= @user.id %>/edit" class="btn btn-default">ユーザー情報の編集に戻る</a></p>
+  <p><a href="/posts" class="btn btn-default">投稿一覧</a></p>
 </div>
