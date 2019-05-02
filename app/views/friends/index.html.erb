@@ -11,7 +11,7 @@
         <div class="users-index-item">
           <div class="user-left">
             <% if User.find(receive_friend).photo.present? %>
-              <%=  image_tag(User.find(receive_friend).photo.url(:thumb)) %>
+              <%= image_tag(User.find(receive_friend).photo.url(:thumb)) %>
             <% else %>
               <img src="<%= "/user_icons/default_user.jpg" %>">
               <!--<img src="<= "/user_icon/#{User.find(receive_friend).icon}" %>" >-->
@@ -48,7 +48,10 @@
             <% end %>  
           </div>
           <div class = "user-right">
-            <%= link_to User.find(request_friend).first_name, "/users/#{request_friend}" %>
+             <%= link_to "/users/#{request_friend}" do %>
+            　 <%= User.find(request_friend).first_name %> <%= User.find(request_friend).last_name %>
+             <% end %>
+            <!--<%= link_to User.find(request_friend).first_name, "/users/#{request_friend}" %>-->
           </div>
         </div>
       <% end %>
@@ -71,7 +74,10 @@
             <% end %>  
           </div>
           <div class="user-right">
-            <%= link_to User.find(friend).first_name, "/users/#{friend}" %>
+             <%= link_to "/users/#{friend}" do %>
+            　 <%= User.find(friend).first_name %> <%= User.find(friend).last_name %>
+             <% end %>
+            <!--<%= link_to User.find(friend).first_name, "/users/#{friend}" %>-->
           </div>  
         </div>
       <% end %>

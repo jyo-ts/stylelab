@@ -32,4 +32,12 @@ module ApplicationHelper
     end
          
   end
+  
+  #　ログインユーザーの未読メッセージ数
+  def read_count
+    count = Entry.where(user_id: current_user.id).where(read_status: "s").count
+    return count
+  end
+  
+  
 end

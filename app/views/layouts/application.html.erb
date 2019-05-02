@@ -32,7 +32,7 @@
                 <li><a href="/users/<%= current_user.id %>"><%= fa_icon("user lg") %> <%= current_user.first_name %><%= current_user.last_name %>さん</a></li>
                 <li><a href="/users"><%= fa_icon("users lg", text: "Stylist一覧") %></a></li>
                 <li><a href="/friends"><%= fa_icon("user-plus lg") %> <span class="badge nave-badge"><%= @receive_friends.count %></span></a></li>
-                <li><a href="/messages"><%= fa_icon("comments lg") %> <span class="badge nave-badge">3</span></a></li>
+                <li><a href="/rooms"><%= fa_icon("comments lg") %> <span class="badge nave-badge"><%= read_count %></span></a></li>
                 <li class="nav-item"><a href="/posts/new"><%= fa_icon("pencil-alt lg", text: "投稿する") %></a></li>
                 <li><a href="/posts"><%= fa_icon("images lg", text: "投稿一覧") %></a></li>
                 <!--<li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>-->

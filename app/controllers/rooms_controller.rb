@@ -23,7 +23,7 @@ class RoomsController < ApplicationController
   end
   
   def index
-    @entries = current_user.entries
+    @entries = current_user.entries.all.order(read_status: :desc)
   end
   
   def edit
