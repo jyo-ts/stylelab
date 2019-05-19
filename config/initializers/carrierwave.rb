@@ -17,8 +17,7 @@ CarrierWave.configure do |config|
     path_style: true
   }
 
-  # config.fog_directory  = ''
-  # config.cache_storage = :fog
+  
 end
 
 
