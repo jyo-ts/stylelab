@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :authenticate_user!, :only => [:show, :index, :edit, :update]
+  before_action :authenticate_user!, :only => [:show, :index, :edit, :update, :destroy]
   # before_action :friend_status
   
   def show
@@ -59,6 +59,16 @@ class UsersController < ApplicationController
     @user.update(params.require(:user).permit(:first_name, :last_name, :age, :salon_name, :salon_url, :profile, :image, :icon_name, :photo))
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    if @user.id == current_user.id
+      @user.destroy
+    else
+      redirect_to "/"
+      flash[:alert] = "無効なユーザー"
+    end
+  end
+  
   def following
     @user = User.find(params[:id])
     @users = @user.followings
@@ -70,4 +80,5 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_follower'
   end
+  
 end

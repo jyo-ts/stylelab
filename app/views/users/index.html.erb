@@ -7,7 +7,12 @@
       <% @users.each do |u| %>
         <% if User.find(u.id).user_type == "s" %>
           <div class="well">
-            <h3><a href="/users/<%= u.id %>"><%= image_tag User.find(u.id).photo.url(:thumb) %> <%= User.find(u.id).first_name %> <%= User.find(u.id).last_name %>様</a></h3>
+            <% if User.find(u.id).photo.present? %>
+              <%= image_tag User.find(u.id).photo.url(:thumb) %>
+            <% else %>
+              <img src="<%= "/user_icons/default_user.jpg" %>">
+            <% end %>
+            <span class="user-name"><a href="/users/<%= u.id %>"> <%= User.find(u.id).first_name %> <%= User.find(u.id).last_name %>様</a></span>
           </div>
         <% end %>
       <% end %>

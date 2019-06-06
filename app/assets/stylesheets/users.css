@@ -6,6 +6,11 @@
   position: relative;
 }
 
+ .user-icon span {
+   font-size: 24px;
+   padding-left: 10px;
+}
+
 .user-profile-left-follow {
   font-size: 18px;
 }

@@ -3,7 +3,6 @@ class FriendsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    
     # @friends = []
     # @request_friends = []
     # @receive_friends = []

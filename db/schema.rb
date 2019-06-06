@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2019_04_29_054152) do
     t.string "user_type"
     t.string "salon_name"
     t.string "salon_url"
-    t.datetime "created_at", null: false
+    t.datetime "created_at", null: faualse
     t.datetime "updated_at", null: false
     t.string "image_file_name"
     t.string "image_content_type"

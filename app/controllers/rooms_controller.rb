@@ -23,7 +23,13 @@ class RoomsController < ApplicationController
   end
   
   def index
-    @entries = current_user.entries.all.order(read_status: :desc)
+    @entries = []
+    Entry.order(read_status: :desc).where(user_id: current_user.id).each do |e|
+      entry_id = Entry.where(room_id: e.room_id).where.not(user_id: current_user.id).ids
+      @entries.push([e.room_id,Entry.find_by(id: entry_id).user_id])
+    end  
+    # @entries = current_user.entries.all.order(read_status: :desc)
+    # logger.debug("=================index entries 相手のid = #{@entries[0][1]}")
   end
   
   def edit

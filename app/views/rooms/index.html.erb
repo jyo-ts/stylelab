@@ -1,11 +1,26 @@
 <div class="container main-page">
-<h1>TALK一覧</h1>
-<hr>
-<% @entries.each do |e| %>
-  <a href="/rooms/<%= e.room_id %>"><%= e.room.name %></a>
-  <!--<%= link_to "削除", "/rooms/#{e.room.id}", method: :delete, data: {confirm: "本当に削除しますか？"} %>-->
-  <hr>
-<% end %>
-<p><a href="/users/<%= current_user.id %>" class="btn btn-default"><%= current_user.first_name %> <%= current_user.last_name %>さんの情報に戻る</a></p>
-<p><a href="/" class="btn btn-default">トップに戻る</a></p>
+  <h1>TALK一覧</h1>
+    <hr>
+    <div class="room-icon">
+      <% if @entries.empty? %>
+        <div class="comment">No Message</div>
+        <hr>
+      <% else %>
+        <% @entries.each do |e| %>
+          <div class="user-left">
+            <% if User.find(e[1]).photo.present? %>
+             <%=image_tag(User.find(e[1]).photo.url(:thumb)) %>
+            <% else %>
+             <img src="<%= "/user_icons/default_user.jpg" %>">
+            <% end %>
+          </div>
+          <span><a href="/rooms/<%= e[0] %>"><%= User.find(e[1]).first_name %> <%= User.find(e[1]).last_name %></a></span>
+        <!--< link_to "削除", "/rooms/#{e.room.id}", method: :delete, data: {confirm: "本当に削除しますか？"} %>-->
+        <hr>
+        <% end %>
+      <% end %>
+    </div>
+    <p><a href="/users/<%= current_user.id %>" class="btn btn-default"><%= current_user.first_name %> <%= current_user.last_name %>さんの情報に戻る</a></p>
+  <p><a href="/" class="btn btn-default">トップに戻る</a></p>
 </div>
+

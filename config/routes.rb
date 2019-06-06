@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # get 'posts/new'
   resources :posts
   resources :welcome, :only => [:index]
-  resources :users, :only => [:show, :index, :edit, :update]
+  resources :users, :only => [:show, :index, :edit, :update, :destroy]
   resources :messages, :only => [:create, :index]
   resources :rooms, :only => [:create, :show, :index, :edit, :update, :destroy]
   resources :friends, :only => [:index]
@@ -25,5 +25,12 @@ Rails.application.routes.draw do
      get :following, :followers
     end
   end
-  resources :relationships,       only: [:index, :create, :destroy]
+  resources :relationships, only: [:index, :create, :destroy]
+
+  # resources :users do
+  #   resource :friends, only: [:create, :destroy]
+  # end
+
 end
+
+
