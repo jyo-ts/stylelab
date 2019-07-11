@@ -7,11 +7,10 @@
         <!--<%= f.label :image %><br />-->
           <!--<%= image_tag @user.image.url(:medium) %>-->
               <br><br>
+          <p>画像</p>
             <%= f.file_field :photo, autofocus: true, class: "form-control my-form" %>
           </div>
-  
-  <p>画像</p>
-            <input name="image" type="file">
+            <!--<input name="image" type="file">-->
   <div class="field">
       <%= f.label :苗字 %>
       <%= f.text_field :first_name, class: "form-control my-form" %>
