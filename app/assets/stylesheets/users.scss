@@ -1,19 +1,67 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-icon img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid gray;
+}
 
-// .user-icon img {
-//   height: 50px;
-//   width: 50px;
-//   border-radius: 50%;
-//   border: 2px solid gray;
-// }
+ .user-icon span {
+   font-size: 24px;
+   padding-left: 10px;
+}
 
-// .user-profile {
-//   // font-weight: bold;
-// }
+.user-icon span a {
+  vertical-align: middle;
+}
 
-// .user-menus .p {
-//   float: right;
-//   padding: 100px;
-// }
+.user-profile-left-follow {
+  font-size: 18px;
+}
+
+.user-profile-right {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 50px;
+  padding-top: 50px;
+  float: left;
+}
+
+.user-menus {
+  clear: left;
+  padding-top: 30px;
+}
+
+.stylist-profile-right {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 50px;
+  padding-top: 50px;
+  float: left;
+}
+
+.stylist-profile-left {
+  float: left;
+  padding-right: 40px;
+}
+
+.user-profile-left {
+  float: left;
+  padding-right: 40px;
+}
+
+.friend-state {
+  clear: both;
+  padding-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .stylist-profile-right {
+      /*font-weight: bold;*/
+      /*font-size: 18px;*/
+      margin-top: 20px;
+      padding-top: 50px;
+      float: left;
+    }
+}
+
+/*# sourceMappingURL=users.css.map */

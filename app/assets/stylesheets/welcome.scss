@@ -29,3 +29,22 @@
 .container-fluid {
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  .header-content {
+    color: black;
+    font-size: 100px;
+    padding-top: 100px;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Caveat Brush', cursive;
+  }
+  
+  .header-message {
+    font-size: 20px;
+    padding-top: 40px;
+    margin: 13px;
+    color: white;
+    font-weight: bold;
+  }
+  
+}

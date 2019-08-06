@@ -1,6 +1,7 @@
 <div class="container main-page">
   <div class="posts-title">
     <h1>投稿一覧</h1>
+    <hr>
   </div>
     <div class="post-icon">
       <% @posts.each do |p| %>
@@ -10,8 +11,8 @@
           <% else %>
             <img src="<%= "/user_icons/default_user.jpg" %>">
           <% end %>
-            <span><a href="/users/<%= p.user_id %>"><%= User.find(p.user_id).first_name %> <%= User.find(p.user_id).last_name %>様</a>の投稿</span>
-              <h3><a href="/posts/<%= p.id %>"> <%= p.title %><br><%= p.content %></a></h3>
+            <span><a href="/users/<%= p.user_id %>"><%= User.find(p.user_id).first_name %> <%= User.find(p.user_id).last_name %> 様</a>の投稿</span>
+              <h3><a href="/posts/<%= p.id %>"> タイトル: <%= p.title %><br>コメント: <%= p.content %></a></h3>
         </div>
       <% end %>
     </div>

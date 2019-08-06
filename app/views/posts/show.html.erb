@@ -1,10 +1,8 @@
 <div class="container main-page">
-<div class="row">
-  <div class="col-xs-6">
   <div class="posts-show-item">
       <div class="post-icon">
         <% if User.find(@user.id).photo.present? %>
-          <h2><%= image_tag @user.photo.url(:thumb) %> <%= link_to "#{@user.first_name} #{@user.last_name}さん", "/users/#{@user.id}" %></h2>
+          <h2><%= image_tag @user.photo.url(:thumb) %> <%= link_to "#{@user.first_name} #{@user.last_name} さん", "/users/#{@user.id}" %></h2>
         <% end %>
       </div>
         <p>タイトル：<%= @post.title %></p>
@@ -37,8 +35,6 @@
                   <% end %>
                 <% end %>
              </div>
-    <!--<p><a href="/posts/<%= @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>-->
-</div>
-</div>
+    <!--<p><a href="/posts/< @post.id %>" data-method="delete" class= "btn btn-primary">投稿を削除する</a></p>-->
   </div>
 </div>

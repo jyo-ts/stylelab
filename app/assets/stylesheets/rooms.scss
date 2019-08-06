@@ -13,12 +13,26 @@ h1 {
 .room-icon span {
   font-size: 24px;
   padding-left:10px;
-  // line-height: 50px;
 }
 
-.user-left img {
+.room-icon span a {
+  vertical-align: middle;
+}
+
+.room-icon img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   border: 2px solid gray;
+}
+
+@media (max-width: 600px) {
+  .col-lg-3.text-center {
+    margin-bottom: 10px;
+  }
+  
+  .container.main-page {
+    margin-top: 0;
+  }
+  
 }

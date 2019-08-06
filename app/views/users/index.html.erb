@@ -3,18 +3,18 @@
     <h1>Stylist 一覧</h1>
   </div>
     <hr>
-    <div class="user-icon">
-      <% @users.each do |u| %>
-        <% if User.find(u.id).user_type == "s" %>
-          <div class="well">
-            <% if User.find(u.id).photo.present? %>
-              <%= image_tag User.find(u.id).photo.url(:thumb) %>
-            <% else %>
-              <img src="<%= "/user_icons/default_user.jpg" %>">
-            <% end %>
-            <span class="user-name"><a href="/users/<%= u.id %>"> <%= User.find(u.id).first_name %> <%= User.find(u.id).last_name %> 様</a></span>
-          </div>
+      <div class="user-icon">
+        <% @users.each do |u| %>
+          <% if User.find(u.id).user_type == "s" %>
+            <div class="well">
+              <% if User.find(u.id).photo.present? %>
+                <%= image_tag User.find(u.id).photo.url(:thumb) %>
+              <% else %>
+                <img src="<%= "/user_icons/default_user.jpg" %>">
+              <% end %>
+              <span class="user-name"><a href="/users/<%= u.id %>"> <%= User.find(u.id).first_name %> <%= User.find(u.id).last_name %> 様</a></span>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
 </div>
