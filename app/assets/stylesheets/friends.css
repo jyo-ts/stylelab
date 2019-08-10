@@ -15,4 +15,15 @@
   line-height: 2; 
 }
 
+@media (max-width: 600px) {
+  .user-right {
+    font-size: 25px;
+    line-height: 2
+  }
+  
+  .user-right a {
+    padding-left: 15px;
+  }
+}
+
 /*# sourceMappingURL=friends.css.map */
