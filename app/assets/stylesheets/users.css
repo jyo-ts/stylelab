@@ -9,6 +9,13 @@ body {
   border: 2px solid gray;
 }
 
+.user-menus {
+  clear: left;
+  padding-top: 30px;
+}
+
+/*index*/
+
  .user-icon span {
    font-size: 24px;
    padding-left: 10px;
@@ -16,23 +23,14 @@ body {
 
 .user-icon span a {
   vertical-align: middle;
+  text-decoration: none;
 }
 
-.user-profile-left-follow {
-  font-size: 18px;
-}
+/*stylelist_show*/
 
-.user-profile-right {
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 50px;
-  padding-top: 50px;
+.stylist-profile-left {
   float: left;
-}
-
-.user-menus {
-  clear: left;
-  padding-top: 30px;
+  padding-right: 40px;
 }
 
 .stylist-profile-right {
@@ -43,19 +41,40 @@ body {
   float: left;
 }
 
-.stylist-profile-left {
-  float: left;
-  padding-right: 40px;
-}
+/*user_show*/
 
 .user-profile-left {
   float: left;
   padding-right: 40px;
 }
 
+.user-profile-right {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 50px;
+  padding-top: 50px;
+  float: left;
+}
+
+
+/*relationship*/
+.user-profile-left-follow {
+  font-size: 18px;
+}
+
+.user-profile-left-follow .stats a:hover {
+  text-decoration: none;
+}
+
+/*friend*/
+
 .friend-state {
   clear: both;
   padding-top: 2px;
+}
+
+.friend-state a:hover {
+ text-decoration: none;
 }
 
 

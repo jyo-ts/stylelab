@@ -15,6 +15,10 @@
   line-height: 2; 
 }
 
+.user-right a {
+  text-decoration:none;
+}
+
 @media (max-width: 600px) {
   .user-right {
     font-size: 25px;

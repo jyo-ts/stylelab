@@ -2,13 +2,15 @@
   margin-top: 50px;
 }
 
-.my-form {
-  // width: 500px;
+.post-icon img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid gray;
 }
 
-.my-select-form {
-  // width: 500px;
-}
+
+// like button
 
 .like-btn {
   color: #8899a6;
@@ -24,12 +26,23 @@
   margin-left: 10px;
 }
 
-.post-icon img {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border: 2px solid gray;
+// index page
+
+.post-icon span {
+  font-size: 24px;
+  padding-left: 10px;
+  vertical-align: middle;
 }
+
+.post-icon span a {
+  text-decoration: none;
+}
+
+.post-icon h2 a {
+  text-decoration: none;
+}
+
+// show page
 
 .post-icon > h2 {
   font-weight: bold;
@@ -39,13 +52,13 @@ body > div.container.main-page > div > div.post-icon > h2 > a {
   vertical-align: middle;
 }
 
-.post-icon span {
-  font-size: 24px;
-  padding-left: 10px;
-  vertical-align: middle;
+.post-icon h3 a {
+  font-size: 20px;
+  text-decoration: none;
 }
 
-.post-icon h3 a {
+.posts-show-item > p {
+  font-weight: bold;
   font-size: 20px;
 }
 
@@ -62,14 +75,10 @@ body > div.container.main-page > div > div.post-icon > h2 > a {
   margin-right: 30px;
 }
 
-.posts-show-item > p {
-  font-weight: bold;
-  font-size: 20px;
-}
-
 .posts-show-item > h4 {
   font-weight: bold;
 }
+
 
 @media (max-width: 600px) {
   .post-icon h2 {
@@ -87,5 +96,4 @@ body > div.container.main-page > div > div.post-icon > h2 > a {
   .post-img > .image {
     padding: 10px 0;
   }
-  
 }

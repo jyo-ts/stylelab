@@ -2,12 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// show page
+
+.main-page a {
+  text-decoration: none;
+}
+
+// index page
+
 h1 {
   font-weight: bold;
 }
 
-.comment {
-  font-size: 20px;
+.room-icon img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid gray;
 }
 
 .room-icon span {
@@ -17,13 +28,11 @@ h1 {
 
 .room-icon span a {
   vertical-align: middle;
+  text-decoration: none;
 }
 
-.room-icon img {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border: 2px solid gray;
+.comment {
+  font-size: 20px;
 }
 
 @media (max-width: 600px) {
