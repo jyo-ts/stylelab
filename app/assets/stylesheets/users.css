@@ -66,6 +66,18 @@ body {
   text-decoration: none;
 }
 
+.followings-index-item .user-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top:20px;
+}
+
+.followers-index-item .user-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
 /*friend*/
 
 .friend-state {
